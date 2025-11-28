@@ -24,7 +24,6 @@ function HomePage() {
       <About/>
       <SkillsSection />
       <CertificateSection />
-
       <ProjectsSection />
       <ContactSection />
     </>
