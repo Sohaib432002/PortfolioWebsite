@@ -20,7 +20,6 @@ const Navbar = () => {
     <nav className="w-full fixed top-0 left-0 z-50 bg-gradient-to-r from-cyan-500 to-blue-700 shadow-lg backdrop-blur-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
-        {/* Logo */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -30,7 +29,6 @@ const Navbar = () => {
           Sohaib<span className="text-cyan-300">.</span>
         </motion.div>
 
-        {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-10">
           {navItems.map((item, idx) => (
             <motion.div
@@ -45,7 +43,6 @@ const Navbar = () => {
               >
                 {item.label}
               </Link>
-              {/* Animated underline */}
               <motion.div
                 className="absolute left-0 bottom-0 h-1 bg-cyan-300 rounded-full"
                 initial={{ width: 0 }}
@@ -56,7 +53,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Menu Toggle */}
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <FiX size={28} className="text-white" /> : <FiMenu size={28} className="text-white" />}
@@ -64,7 +60,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <motion.div
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}

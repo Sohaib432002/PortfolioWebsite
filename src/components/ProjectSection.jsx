@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 
 const projects = [
@@ -39,22 +38,10 @@ const projects = [
     img: "https://cdn-icons-png.flaticon.com/512/3039/3039411.png" // quiz icon
   },
   {
-    name: "Ali Homeland",
-    desc: "Web project for Ali Homeland showcasing dynamic content.",
-    github: "https://github.com/Sohaib432002/aliHomeland",
-    img: "https://cdn-icons-png.flaticon.com/512/2920/2920325.png" // website icon
-  },
-  {
     name: "Countries API",
     desc: "API integration project displaying country data dynamically.",
     github: "https://github.com/Sohaib432002/countriesAPi",
     img: "https://cdn-icons-png.flaticon.com/512/201/201623.png" // API icon
-  },
-  {
-    name: "StayEasy Web",
-    desc: "Full-stack web project for StayEasy web application.",
-    github: "https://github.com/stayeasy57/StayEasy-Web",
-    img: "https://cdn-icons-png.flaticon.com/512/414/414927.png" // hotel icon
   },
   {
     name: "Daraz Clone",
@@ -133,101 +120,30 @@ const projects = [
 
 
 const ProjectSection = () => {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-
-    const points = [];
-    const POINTS_COUNT = 50;
-
-    for (let i = 0; i < POINTS_COUNT; i++) {
-      points.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5
-      });
-    }
-
-    const draw = () => {
-      ctx.fillStyle = "#0a0f2a";
-      ctx.fillRect(0, 0, width, height);
-
-      for (let i = 0; i < points.length; i++) {
-        for (let j = i + 1; j < points.length; j++) {
-          let dx = points[i].x - points[j].x;
-          let dy = points[i].y - points[j].y;
-          let dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.strokeStyle = `rgba(22,210,255,${0.1 + 0.7 * (1 - dist / 120)})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(points[i].x, points[i].y);
-            ctx.lineTo(points[j].x, points[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      points.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
-
-        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 5);
-        gradient.addColorStop(0, "rgba(22,210,255,1)");
-        gradient.addColorStop(1, "rgba(22,210,255,0)");
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
-      requestAnimationFrame(draw);
-    };
-
-    draw();
-
-    const handleResize = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-center py-20 overflow-hidden">
-      <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full z-0" />
-      <h2 className="relative z-10 text-5xl md:text-7xl font-extrabold mb-12 text-center leading-tight text-white drop-shadow-lg">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center py-12 px-4 bg-gray-950">
+
+      <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-8 text-center text-white">
         <span className="text-cyan-400">My</span>{" "}
         <span className="text-white">Projects</span>
-        <div className="text-cyan-500 text-2xl md:text-3xl font-semibold mt-3">
-          — A Glimpse Into My Work —
-        </div>
       </h2>
+      <div className="text-cyan-500 text-lg sm:text-xl font-medium mb-12 text-center">
+        — A Glimpse Into My Work —
+      </div>
 
-      <div className="relative z-10 w-full flex items-center justify-center p-4">
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-7xl justify-items-center">
-          {projects.map((project, idx) => (
-            <ProjectCard
-              key={idx}
-              name={project.name}
-              desc={project.desc}
-              github={project.github}
-              img={project.img}
-            />
-          ))}
-        </div>
+
+      <div className="w-full max-w-7xl grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+        {projects.map((project, idx) => (
+          <ProjectCard
+            key={idx}
+            name={project.name}
+            desc={project.desc}
+            github={project.github}
+            img={project.img}
+          />
+        ))}
       </div>
     </section>
   );
 };
-
-export default ProjectSection;
+export default ProjectSection

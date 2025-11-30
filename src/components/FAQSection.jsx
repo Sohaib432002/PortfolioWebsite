@@ -1,6 +1,6 @@
-import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+
 
 const faqData = [
   {
@@ -33,6 +33,7 @@ const faqData = [
   }
 ];
 
+
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -41,38 +42,25 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="relative w-full min-h-screen py-20 px-6 bg-gradient-to-b from-[#0a0f2a] to-[#041028] text-white overflow-hidden">
-      {/* Background AI Glow */}
-      <div className="absolute top-10 left-10 w-72 h-72 bg-cyan-500/20 blur-[120px] rounded-full"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-700/20 blur-[140px] rounded-full"></div>
+    <section className="w-full py-16 px-4 sm:px-6 md:px-10 bg-gradient-to-b from-[#0a0f2a] to-[#041028] text-white">
+      <div className="max-w-4xl mx-auto">
 
-      {/* Container */}
-      <div className="max-w-5xl mx-auto relative z-10">
-<h2 className="text-center text-5xl md:text-7xl font-extrabold mb-10 tracking-tight">
-  <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent drop-shadow-md">
-    FAQ
-  </span>{" "}
-  <span className="text-white/90">/ Knowledge Base</span>
-</h2>
-        <h2 className="text-5xl md:text-6xl font-extrabold mb-12 text-center text-cyan-400">
-          <div className="text-2xl md:text-3xl font-semibold text-gray-300 mt-3">
-            — Answers to Your Most Asked Questions —
-          </div>
+        <h2 className="text-3xl my-10 sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-cyan-400">
+          FAQ  <span className="text-white"> / Knowledge Base </span>
         </h2>
+        <p className="text-center text-sm sm:text-base md:text-lg text-gray-300 mb-12">
+          — Answers to your most frequently asked questions —
+        </p>
 
-        {/* FAQ List */}
         <div className="space-y-4">
           {faqData.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/5 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden"
+              className="bg-white/5 colr rounded-xl border border-white/10 shadow-md overflow-hidden transition-colors hover:bg-cyan-500/10"
             >
               <button
                 onClick={() => toggleIndex(index)}
-                className="w-full flex justify-between items-center p-4 text-left text-lg font-medium hover:bg-cyan-500/20 transition-colors"
+                className="w-full text-white flex justify-between items-center p-4 text-left text-base sm:text-lg md:text-xl font-medium"
               >
                 {item.question}
                 <span>
@@ -80,36 +68,23 @@ const FAQSection = () => {
                 </span>
               </button>
 
-              <AnimatePresence>
-                {activeIndex === index && (
-                  <motion.div
-                    key="content"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="px-4 pb-4 text-gray-300 text-base leading-relaxed"
-                  >
-                    {item.answer}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+              <div
+                className={`px-4 text-gray-300 text-sm sm:text-base md:text-base leading-relaxed overflow-hidden transition-all duration-500 ease-in-out`}
+                style={{
+                  maxHeight: activeIndex === index ? "500px" : "0",
+                  paddingBottom: activeIndex === index ? "16px" : "0",
+                }}
+              >
+                {item.answer}
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Extra AI Note */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mt-12 text-center text-gray-400 italic"
-        >
-          🤖 All answers are curated intelligently to provide the most relevant information about my skills, projects, and services.
-        </motion.div>
       </div>
     </section>
   );
 };
 
 export default FAQSection;
+

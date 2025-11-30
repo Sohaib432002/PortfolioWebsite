@@ -1,45 +1,37 @@
-// Modal Component
-import { motion } from "framer-motion";
-
 const SkillModal = ({ skill, onClose }) => {
   if (!skill) return null;
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50"
-    >
-      <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.8, opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="bg-gray-900 text-white w-[90%] max-w-xl p-8 rounded-2xl shadow-2xl border border-gray-700"
-      >
-        <h2 className="text-3xl font-bold text-cyan-400 mb-4">
+    <div className="fixed inset-0 bg-black/60 flex justify-center items-center z-50 px-2">
+      <div className="bg-gray-900 text-white w-full max-w-xs xs:max-w-sm sm:max-w-md p-4 xs:p-5 sm:p-6 rounded-2xl shadow-xl border border-gray-700">
+
+        <h2 className="text-xl xs:text-2xl sm:text-3xl font-bold text-cyan-400 mb-3">
           {skill.title}
         </h2>
 
-        <p className="text-gray-300 text-lg leading-relaxed mb-6">
+        <p className="text-gray-300 text-sm xs:text-base sm:text-lg leading-relaxed mb-4">
           {skill.description}
         </p>
-        {skill.extraDetails && skill.extraDetails.map((item, idx) => (
-  <li key={idx} className="text-gray-300 mb-2">{item}</li>
-))}
 
-        {/* Additional Content */}
+        {skill.extraDetails && skill.extraDetails.length > 0 && (
+          <ul className="list-disc list-inside text-gray-300 text-sm xs:text-base mb-4">
+            {skill.extraDetails.map((item, idx) => (
+              <li key={idx} className="mb-1">
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
 
         <button
           onClick={onClose}
-          className="mt-4 bg-cyan-500 px-6 py-3 rounded-lg font-semibold hover:bg-cyan-400 transition shadow-md"
+          className="w-full bg-cyan-500 px-4 py-2 xs:px-5 xs:py-3 rounded-lg font-semibold hover:bg-cyan-400 transition-colors text-sm xs:text-base"
         >
           Close
         </button>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 
-export default SkillModal
+export default SkillModal;

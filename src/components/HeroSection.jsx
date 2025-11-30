@@ -3,16 +3,11 @@ import { useEffect, useRef } from "react";
 import { FiArrowDown, FiArrowRight } from "react-icons/fi";
 import { TypeAnimation } from "react-type-animation";
 
-const ProfileImage = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg";
-const PythonLogo = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg";
-const JSLogo = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg";
-const VSCodeLogo = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg";
+const ProfileImage = `${process.env.PUBLIC_URL}/assets/profile pic (1).png`;
 
 const HeroSection = () => {
-  const logos = [PythonLogo, JSLogo, VSCodeLogo];
   const canvasRef = useRef(null);
 
-  // AI Grid Background
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -35,14 +30,13 @@ const HeroSection = () => {
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw lines
       for (let i = 0; i < points.length; i++) {
         for (let j = i + 1; j < points.length; j++) {
           let dx = points[i].x - points[j].x;
           let dy = points[i].y - points[j].y;
           let dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 150) {
-            ctx.strokeStyle = `rgba(22, 210, 255, ${1 - dist/150})`;
+            ctx.strokeStyle = `rgba(22, 210, 255, ${1 - dist / 150})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(points[i].x, points[i].y);
@@ -52,7 +46,6 @@ const HeroSection = () => {
         }
       }
 
-      // Draw points
       for (let i = 0; i < points.length; i++) {
         points[i].x += points[i].vx;
         points[i].y += points[i].vy;
@@ -81,25 +74,23 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-      {/* AI Grid Canvas */}
+    <section className="relative w-full min-h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden px-4">
       <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full z-0" />
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center px-6">
-        {/* Left Side */}
+      <div className="relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center w-full gap-6">
+
         <motion.div
-          className="flex-1 flex flex-col justify-center items-start text-left mb-10 md:mb-0"
+          className="flex-1 flex flex-col justify-center items-start text-left mb-8 md:mb-0"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <p className="text-cyan-400 text-lg uppercase tracking-[0.3em] mb-3">Hello, I'm</p>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight">
+          <p className="text-cyan-400 text-base sm:text-lg uppercase tracking-[0.2em] mb-2">Hello, I'm</p>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight">
             Muhammad <span className="text-cyan-400 drop-shadow-[0_0_12px_#22d3ee]">Sohaib</span> Maqsood
           </h1>
 
-          <div className="text-xl md:text-2xl text-white mb-6">
+          <div className="text-sm sm:text-lg md:text-xl text-white mt-3 mb-4 sm:mb-6">
             <TypeAnimation
               sequence={[
                 "Python Data Scientist ", 2000,
@@ -112,59 +103,45 @@ const HeroSection = () => {
             />
           </div>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3 sm:gap-4">
             <motion.a
-              href="/projects"
-              whileHover={{ scale: 1.1 }}
+              href="#/projects"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-cyan-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
+              className="inline-flex items-center gap-2 bg-cyan-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg font-medium hover:bg-cyan-400 transition-colors text-sm sm:text-base"
             >
               See My Work <FiArrowRight />
             </motion.a>
 
             <motion.a
-              href="#projects"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-cyan-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
-            >
-              Download CV <FiArrowDown />
-            </motion.a>
+  href={`${process.env.PUBLIC_URL}/assets/Sohaib_CV.pdf`}
+  download="Muhammad-Sohaib-Maqsood-CV.pdf"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="inline-flex items-center gap-2 bg-cyan-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg font-medium hover:bg-cyan-400 transition-colors text-sm sm:text-base"
+>
+  Download CV <FiArrowDown />
+</motion.a>
           </div>
         </motion.div>
 
-        {/* Right Side - Profile Image + Logos */}
         <motion.div
-          className="flex-1 flex justify-center relative"
+          className="flex-1 flex justify-center relative mt-6 md:mt-0"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="relative w-64 md:w-80">
+          <div className="relative w-40 sm:w-64 md:w-80">
             <img
               src={ProfileImage}
               alt="Profile"
               className="w-full rounded-full border-4 border-cyan-400 shadow-lg"
             />
 
-            {logos.map((logo, index) => {
-              const angle = (index / logos.length) * 360;
-              return (
-                <motion.img
-                  key={index}
-                  src={logo}
-                  alt={`Logo ${index}`}
-                  className="w-12 h-12 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white shadow-md bg-white p-1"
-                  style={{
-                    transform: `rotate(${angle}deg) translate(100px) rotate(-${angle}deg)`,
-                  }}
-                  animate={{ rotate: 360 }}
-                  transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-                />
-              );
-            })}
+
           </div>
         </motion.div>
+
       </div>
     </section>
   );

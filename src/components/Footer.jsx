@@ -1,17 +1,15 @@
 import { motion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
+import { FiFacebook, FiGithub, FiLinkedin, } from "react-icons/fi";
 
 const Footer = () => {
   return (
     <footer className="relative w-full bg-gradient-to-t from-[#040914] to-[#0a0f20] text-gray-300 px-6 py-12 overflow-hidden">
 
-      {/* AI Glow Circles */}
       <div className="absolute top-10 left-10 w-72 h-72 bg-cyan-500/20 blur-[120px] rounded-full"></div>
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-700/20 blur-[140px] rounded-full"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
 
-        {/* Logo / Name */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -21,12 +19,11 @@ const Footer = () => {
           Sohaib Maqsood
         </motion.div>
 
-        {/* Quick Links */}
         <div className="flex gap-6 flex-wrap justify-center">
           {["Home", "Skills", "Projects", "Contact"].map((link, idx) => (
             <motion.a
               key={idx}
-              href={`#${link.toLowerCase()}`}
+              href={`#${link==='Home'?'/':link.toLowerCase()}`}
               whileHover={{ y: -3, scale: 1.1, color: "#00ffff" }}
               transition={{ type: "spring", stiffness: 300 }}
               className="font-medium hover:text-cyan-400 transition-colors"
@@ -36,12 +33,11 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Social Icons */}
         <div className="flex gap-4">
           {[
-            { icon: <FiLinkedin size={24} />, link: "https://www.linkedin.com/in/sohaibmaqsood/" },
-            { icon: <FiGithub size={24} />, link: "https://github.com/sohaibmaqsood" },
-            { icon: <FiTwitter size={24} />, link: "https://twitter.com/yourhandle" }
+            { icon: <FiLinkedin size={24} />, link: "www.linkedin.com/in/muhammad-sohaib-maqsood-72b785244" },
+            { icon: <FiGithub size={24} />, link: "https://github.com/Sohaib432002" },
+            { icon: <FiFacebook size={24} />, link: "https://www.facebook.com/sohaib.maqsood.51319" }
           ].map((item, idx) => (
             <motion.a
               key={idx}
@@ -58,10 +54,8 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Divider */}
       <div className="w-full h-[1px] bg-white/10 my-8 relative z-10"></div>
 
-      {/* Copyright */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

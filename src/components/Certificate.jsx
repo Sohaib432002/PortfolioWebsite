@@ -8,7 +8,6 @@ const CertificateCard = ({ title, issuer, year, image }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
     >
-      {/* Certificate Image */}
       {image && (
         <img
           src={image}
@@ -17,15 +16,12 @@ const CertificateCard = ({ title, issuer, year, image }) => {
         />
       )}
 
-      {/* Title */}
       <h3 className="text-xl font-bold text-cyan-400 mb-1">
         {title}
       </h3>
 
-      {/* Issuer */}
       <p className="text-gray-300 text-sm">{issuer}</p>
 
-      {/* Year */}
       <p className="text-gray-500 text-sm mt-1">{year}</p>
     </motion.div>
   );
