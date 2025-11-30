@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Sohaib432002/PortfolioWebsite/static/css/main.a7c252c8.css",
+    "main.js": "/Sohaib432002/PortfolioWebsite/static/js/main.619371d6.js",
+    "index.html": "/Sohaib432002/PortfolioWebsite/index.html",
+    "main.a7c252c8.css.map": "/Sohaib432002/PortfolioWebsite/static/css/main.a7c252c8.css.map",
+    "main.619371d6.js.map": "/Sohaib432002/PortfolioWebsite/static/js/main.619371d6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7c252c8.css",
+    "static/js/main.619371d6.js"
+  ]
+}
