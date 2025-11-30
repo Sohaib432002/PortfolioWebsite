@@ -1,7 +1,7 @@
 {
   "name": "my-project",
   "version": "0.1.0",
-  "homepage": "https://github.com/Sohaib432002/PortfolioWebsite",
+  "homepage": "https://Sohaib432002.github.io/PortfolioWebsite",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
@@ -26,7 +26,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+"deploy": "gh-pages -d build"
+
   },
   "eslintConfig": {
     "extends": [

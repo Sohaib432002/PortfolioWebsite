@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import './App.css';
 
 import About from './components/About';
@@ -16,7 +16,6 @@ import ProjectsSectionDetails from "./components/ProjectSectionDetails";
 import ServicesSection from "./components/ServicesSection";
 import SkillsSection from './components/SkillsSection';
 
-// Optional: Separate pages (if needed)
 function HomePage() {
   return (
     <>
@@ -31,27 +30,15 @@ function HomePage() {
 }
 
 function SkillsPage() {
-  return (
-    <>
-      <SkillsSection />
-    </>
-  );
+  return <SkillsSection />;
 }
 
 function ProjectsPage() {
-  return (
-    <>
-      <ProjectsSection />
-    </>
-  );
+  return <ProjectsSection />;
 }
 
 function ContactPage() {
-  return (
-    <>
-      <ContactSection />
-    </>
-  );
+  return <ContactSection />;
 }
 
 function App() {
