@@ -60,14 +60,14 @@ const ContactSection = () => {
             <FiPhone /> Call
           </a>
           <a
-            href="https://www.linkedin.com/in/sohaibmaqsood/"
+            href="www.linkedin.com/in/muhammad-sohaib-maqsood-72b785244"
             target="_blank"
             className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full py-3 rounded-lg font-medium hover:bg-cyan-400 transition-colors" rel="noreferrer"
           >
             <FiLinkedin /> LinkedIn
           </a>
           <a
-            href="https://github.com/sohaibmaqsood"
+            href="https://github.com/Sohaib432002"
             target="_blank"
             className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full py-3 rounded-lg font-medium hover:bg-cyan-400 transition-colors" rel="noreferrer"
           >
