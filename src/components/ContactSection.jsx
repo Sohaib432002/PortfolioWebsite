@@ -1,48 +1,48 @@
-import { useState } from "react";
-import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
+import { useState } from 'react'
+import { FiGithub, FiLinkedin, FiMail, FiPhone } from 'react-icons/fi'
 
 const ContactSection = () => {
-  const [result, setResult] = useState("");
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [result, setResult] = useState('')
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setResult("Sending...");
+    e.preventDefault()
+    setResult('Sending...')
 
-    const form = new FormData();
-    form.append("name", formData.name);
-    form.append("email", formData.email);
-    form.append("message", formData.message);
+    const form = new FormData()
+    form.append('name', formData.name)
+    form.append('email', formData.email)
+    form.append('message', formData.message)
 
-    form.append("access_key", "baf60a04-502e-4800-8238-a84d4c5c12ce");
+    form.append('access_key', 'baf60a04-502e-4800-8238-a84d4c5c12ce')
 
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: form
-    });
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: form,
+    })
 
-    const data = await res.json();
+    const data = await res.json()
 
     if (data.success) {
-      setResult("Message Sent Successfully!");
-      setFormData({ name: "", email: "", message: "" });
+      setResult('Message Sent Successfully!')
+      setFormData({ name: '', email: '', message: '' })
     } else {
-      setResult(data.message);
+      setResult(data.message)
     }
-  };
+  }
 
   return (
-    <section className="w-full bg-gray-900 text-white px-4 py-16">
+    <section className="w-full  bg-gray-900 text-white px-4 py-16">
       <div className="max-w-xl mx-auto text-center">
         {/* Header */}
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-cyan-400 mb-4">
+        <h2 className="text-3xl pointer-events-none sm:text-4xl font-extrabold text-cyan-400 mb-4">
           Get in <span className="text-white">Touch</span>
         </h2>
-        <p className="text-cyan-200 text-base sm:text-lg mb-8">
+        <p className="text-cyan-200 pointer-events-none text-base sm:text-lg mb-8">
           I’d love to connect — feel free to reach out anytime.
         </p>
 
@@ -62,14 +62,16 @@ const ContactSection = () => {
           <a
             href="www.linkedin.com/in/muhammad-sohaib-maqsood-72b785244"
             target="_blank"
-            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full py-3 rounded-lg font-medium hover:bg-cyan-400 transition-colors" rel="noreferrer"
+            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full py-3 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
+            rel="noreferrer"
           >
             <FiLinkedin /> LinkedIn
           </a>
           <a
             href="https://github.com/Sohaib432002"
             target="_blank"
-            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full py-3 rounded-lg font-medium hover:bg-cyan-400 transition-colors" rel="noreferrer"
+            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full py-3 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
+            rel="noreferrer"
           >
             <FiGithub /> GitHub
           </a>
@@ -115,7 +117,7 @@ const ContactSection = () => {
         <p className="text-cyan-300 mt-4">{result}</p>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ContactSection;
+export default ContactSection

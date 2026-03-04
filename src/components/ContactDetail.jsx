@@ -1,57 +1,56 @@
-import { useState } from "react";
-import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
+import { useState } from 'react'
+import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi'
 
 const ContactDetails = () => {
-  const [result, setResult] = useState("");
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [result, setResult] = useState('')
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setResult("Sending...");
+    e.preventDefault()
+    setResult('Sending...')
 
-    const form = new FormData();
-    form.append("name", formData.name);
-    form.append("email", formData.email);
-    form.append("message", formData.message);
+    const form = new FormData()
+    form.append('name', formData.name)
+    form.append('email', formData.email)
+    form.append('message', formData.message)
 
-    form.append("access_key", "baf60a04-502e-4800-8238-a84d4c5c12ce");
+    form.append('access_key', 'baf60a04-502e-4800-8238-a84d4c5c12ce')
 
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: form
-    });
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: form,
+    })
 
-    const data = await res.json();
+    const data = await res.json()
 
     if (data.success) {
-      setResult("Message Sent Successfully!");
-      setFormData({ name: "", email: "", message: "" });
+      setResult('Message Sent Successfully!')
+      setFormData({ name: '', email: '', message: '' })
     } else {
-      setResult(data.message);
+      setResult(data.message)
     }
-  };
+  }
 
   return (
     <section className="relative w-full py-20 px-6 sm:px-10 md:px-16 bg-gradient-to-br from-[#0a0f2a] via-[#101c3a] to-[#0a0f2a] text-white">
-
-      <h2 className="text-center text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 md:mb-10 tracking-tight">
-        <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent drop-shadow-md">
-          Get
-        </span>{" "}
-        <span className="text-white/90">In Touch</span>
+      <h2 className="text-center pointer-events-none text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 md:mb-10 tracking-tight">
+        <span className="text-white/90">Get</span>{' '}
+        <span className=" bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent drop-shadow-md">
+          In Touch
+        </span>
       </h2>
 
-      <p className="text-center text-sm sm:text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-        Have a question or want to work together? Reach out to me via the contact details below or send me a message directly through the form.
+      <p className="text-center pointer-events-none text-sm sm:text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+        Have a question or want to work together? Reach out to me via the contact details below or
+        send me a message directly through the form.
       </p>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-
-        <div className="space-y-8">
+        <div className="space-y-8 pointer-events-none">
           <h3 className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-6">Contact Info</h3>
 
           <div className="flex items-start gap-4">
@@ -84,7 +83,9 @@ const ContactDetails = () => {
         </div>
 
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 shadow-lg">
-          <h3 className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-6">Send a Message</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold pointer-events-none text-cyan-400 mb-6">
+            Send a Message
+          </h3>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <input
@@ -125,10 +126,9 @@ const ContactDetails = () => {
 
           <p className="text-cyan-300 mt-4">{result}</p>
         </div>
-
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ContactDetails;
+export default ContactDetails

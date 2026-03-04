@@ -1,46 +1,49 @@
-
 const certificates = [
   {
-    title: "British Airways Data Science Simulation",
-    issuer: "British Airways Data Science | @Forage",
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca",
-    description: "Completed a data science simulation analyzing customer reviews, uncovering insights, and building predictive models for airline customer behavior."
+    title: 'British Airways Data Science Simulation',
+    issuer: 'British Airways Data Science | @Forage',
+    year: '2024',
+    image: 'https://images.unsplash.com/photo-1507537297725-24a1c029d3ca',
+    description:
+      'Completed a data science simulation analyzing customer reviews, uncovering insights, and building predictive models for airline customer behavior.',
   },
   {
-    title: "Naxium Software Internship",
-    issuer: "Naxium Software",
-    year: "2025",
+    title: 'Naxium Software Internship',
+    issuer: 'Naxium Software',
+    year: '2025',
     image: `${process.env.PUBLIC_URL}/assets/Nexium.png`,
-    description: "Internship focused on advanced web development, dashboard creation, and backend API integration."
+    description:
+      'Internship focused on advanced web development, dashboard creation, and backend API integration.',
   },
   {
-    title: "Python Data Science Certificate",
-    issuer: "Saylor Academy",
-    year: "2025",
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-    description: "Gained hands-on experience in Python for data analysis, visualization, and statistical modeling."
+    title: 'Python Data Science Certificate',
+    issuer: 'Saylor Academy',
+    year: '2025',
+    image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+    description:
+      'Gained hands-on experience in Python for data analysis, visualization, and statistical modeling.',
   },
   {
-    title: "ReactJS Foundation Course",
-    issuer: "Online Program",
-    year: "2025",
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-    description: "Learned the fundamentals of ReactJS, including components, state management, hooks, and building interactive web applications."
+    title: 'ReactJS Foundation Course',
+    issuer: 'Online Program',
+    year: '2025',
+    image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+    description:
+      'Learned the fundamentals of ReactJS, including components, state management, hooks, and building interactive web applications.',
   },
   {
-    title: "Soft Skills Certification",
-    issuer: "OEC & ICMBD",
-    year: "2025",
-    image: "https://cdn-icons-png.flaticon.com/512/190/190411.png",
-    description: "Developed essential soft skills like communication, teamwork, leadership, and problem-solving."
-  }
-];
+    title: 'Soft Skills Certification',
+    issuer: 'OEC & ICMBD',
+    year: '2025',
+    image: 'https://cdn-icons-png.flaticon.com/512/190/190411.png',
+    description:
+      'Developed essential soft skills like communication, teamwork, leadership, and problem-solving.',
+  },
+]
 
 const CertificateSection = () => {
   return (
-    <section className="w-full bg-gray-900 text-white px-4 py-16">
-
+    <section className="w-full pointer-events-none bg-gray-900 text-white px-4 py-16">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-6 text-cyan-400">
         Achievements & Certificates
         <div className="text-cyan-500 text-base sm:text-lg md:text-xl font-semibold mt-2">
@@ -67,14 +70,12 @@ const CertificateSection = () => {
             <p className="text-gray-300 text-center mt-1 text-sm">{cert.issuer}</p>
             <p className="text-gray-400 text-center text-xs mt-1">{cert.year}</p>
 
-            <p className="text-gray-300 text-center text-sm mt-2">
-              {cert.description}
-            </p>
+            <p className="text-gray-300 text-center text-sm mt-2">{cert.description}</p>
           </div>
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CertificateSection;
+export default CertificateSection

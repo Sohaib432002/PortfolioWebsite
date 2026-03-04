@@ -1,6 +1,6 @@
 const SkillModal = ({ skill, onClose }) => {
   if (!skill) return null;
-
+  console.log('Rendering SkillModal for:', skill)
   return (
     <div className="fixed inset-0 bg-black/60 flex justify-center items-center z-50 px-2">
       <div className="bg-gray-900 text-white w-full max-w-xs xs:max-w-sm sm:max-w-md p-4 xs:p-5 sm:p-6 rounded-2xl shadow-xl border border-gray-700">
