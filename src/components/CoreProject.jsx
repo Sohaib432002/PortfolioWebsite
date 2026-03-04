@@ -22,7 +22,7 @@ const ProjectsSection = () => {
       title: 'Symptoms & Clinical Data Dashboard',
       description:
         'Interactive healthcare dashboard for visualizing patient clinical data with dynamic filtering and real-time chart updates.',
-      image: '/PortfolioWebsite/assets/dashboard.png',
+      image: '/PortfolioWebsite/assets/Dashboard.png',
       tech: ['React', 'Recharts', 'Context API', 'Data Visualization'],
       points: [
         'Age-based filtering',
@@ -32,7 +32,7 @@ const ProjectsSection = () => {
         'Live chart updates',
         'Loader component for async data',
       ],
-      github: 'https://github.com/Sohaib432002/Dashboard.png',
+      github: 'https://github.com/Sohaib432002/Dashboard',
       demo: 'https://www.linkedin.com/posts/muhammad-sohaib-maqsood-72b785244_datavisualization-healthcareanalytics-reactjs-activity-7429927540523175936-ouCP?utm_source=share&utm_medium=member_desktop&rcm=ACoAADyggdMBS5Nu2OumRPqGvRaal16wb5s8vzI',
     },
 
