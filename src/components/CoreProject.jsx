@@ -32,7 +32,7 @@ const ProjectsSection = () => {
         'Live chart updates',
         'Loader component for async data',
       ],
-      github: 'https://github.com/Sohaib432002/Dashboard',
+      github: 'https://github.com/Sohaib432002/Dashboard.png',
       demo: 'https://www.linkedin.com/posts/muhammad-sohaib-maqsood-72b785244_datavisualization-healthcareanalytics-reactjs-activity-7429927540523175936-ouCP?utm_source=share&utm_medium=member_desktop&rcm=ACoAADyggdMBS5Nu2OumRPqGvRaal16wb5s8vzI',
     },
 
@@ -122,19 +122,16 @@ const ProjectsSection = () => {
 
   return (
     <section className="w-full py-12 sm:py-16 px-4 sm:px-6 md:px-10 bg-gradient-to-b from-[#0d1b2a] via-[#1b263b] to-[#0d1b2a] text-white">
-      <h2 className="text-4xl pointer-events-none sm:text-5xl md:text-6xl font-extrabold mb-8 text-center text-white">
-        <span className="text-white">My</span> <span className=" text-cyan-400">Core Projects</span>
+      <h2 className="text-3xl pointer-events-none sm:text-5xl md:text-6xl font-extrabold mb-6 text-center">
+        <span>My </span>
+        <span className="text-cyan-400">Core Projects</span>
       </h2>
-      <div className="text-cyan-500 text-lg pointer-events-none sm:text-xl font-medium mb-12 text-center">
-        — A Glimpse Into My Work —
-      </div>
 
-      <p className="text-center text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto mb-12 sm:mb-16">
-        These are my top projects including Machine Learning, Web Development, Full-Stack
-        applications, API tools, dashboards, and Python-based tools.
+      <p className="text-center text-sm pointer-events-none sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto mb-12">
+        Featured Machine Learning, Full-Stack & Frontend projects.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {projects.map((proj, idx) => (
           <CoreProjectCard key={idx} project={proj} />
         ))}
