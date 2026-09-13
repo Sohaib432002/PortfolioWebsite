@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi'
+import { SITE } from '../data/site'
 
 const ContactDetails = () => {
   const [result, setResult] = useState('')
@@ -36,7 +37,7 @@ const ContactDetails = () => {
   }
 
   return (
-    <section className="relative w-full py-20 px-6 sm:px-10 md:px-16 bg-gradient-to-br from-[#0a0f2a] via-[#101c3a] to-[#0a0f2a] text-white">
+    <section className="relative w-full py-20 px-6 sm:px-10 md:px-16 pb-28 bg-gradient-to-br from-[#0a0f2a] via-[#101c3a] to-[#0a0f2a] text-white">
       <h2 className="text-center pointer-events-none text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 md:mb-10 tracking-tight">
         <span className="text-white/90">Get</span>{' '}
         <span className=" bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent drop-shadow-md">
@@ -50,16 +51,16 @@ const ContactDetails = () => {
       </p>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div className="space-y-8 pointer-events-none">
+        <div className="space-y-8">
           <h3 className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-6">Contact Info</h3>
 
           <div className="flex items-start gap-4">
             <FiMail className="text-cyan-400 text-2xl mt-1" />
             <div>
               <p className="text-gray-300 text-sm sm:text-base">Email</p>
-              <p className="text-white font-semibold break-all">
-                sohaibmaqsoodsohaibmaqsood@gmail.com
-              </p>
+              <a href={`mailto:${SITE.email}`} className="text-white font-semibold break-all hover:text-cyan-300">
+                {SITE.email}
+              </a>
             </div>
           </div>
 
@@ -67,7 +68,9 @@ const ContactDetails = () => {
             <FiPhone className="text-cyan-400 text-2xl mt-1" />
             <div>
               <p className="text-gray-300 text-sm sm:text-base">Phone</p>
-              <p className="text-white font-semibold">+92 319 1057875</p>
+              <a href={`tel:${SITE.phone}`} className="text-white font-semibold hover:text-cyan-300">
+                {SITE.phoneDisplay}
+              </a>
             </div>
           </div>
 
@@ -75,9 +78,7 @@ const ContactDetails = () => {
             <FiMapPin className="text-cyan-400 text-2xl mt-1" />
             <div>
               <p className="text-gray-300 text-sm sm:text-base">Location</p>
-              <p className="text-white font-semibold">
-                Near PAF Colony, Talagang Road, Mianwali, Pakistan
-              </p>
+              <p className="text-white font-semibold">{SITE.location}</p>
             </div>
           </div>
         </div>

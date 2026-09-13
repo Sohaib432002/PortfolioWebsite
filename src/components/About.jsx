@@ -7,19 +7,20 @@ import {
   FaPython,
   FaReact,
 } from 'react-icons/fa'
-import { SiBootstrap, SiDjango, SiNumpy, SiPandas, SiTailwindcss } from 'react-icons/si'
+import { SiDjango, SiNumpy, SiPandas, SiTailwindcss, SiTensorflow } from 'react-icons/si'
+import { SITE } from '../data/site'
 
-const ProfileImage = `${process.env.PUBLIC_URL}/assets/profile pic (1).png`
+const ProfileImage = SITE.profileImage
 
 const About = () => {
   const icons = [
+    { icon: SiTensorflow, color: 'text-orange-400' },
     { icon: FaPython, color: 'text-cyan-400' },
     { icon: FaJsSquare, color: 'text-yellow-400' },
     { icon: FaReact, color: 'text-blue-400' },
     { icon: SiDjango, color: 'text-green-400' },
     { icon: FaHtml5, color: 'text-orange-500' },
     { icon: FaCss3Alt, color: 'text-blue-600' },
-    { icon: SiBootstrap, color: 'text-purple-400' },
     { icon: SiTailwindcss, color: 'text-sky-400' },
     { icon: FaDatabase, color: 'text-green-500' },
     { icon: SiPandas, color: 'text-blue-400' },
@@ -28,31 +29,37 @@ const About = () => {
   ]
 
   return (
-    <section className="relative max-w-full pointer-events-none min-h-screen flex items-center justify-center py-16 px-4 sm:py-20 sm:px-6 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
+    <section
+      id="about"
+      className="relative max-w-full pointer-events-none min-h-screen flex items-center justify-center py-16 px-4 sm:py-20 sm:px-6 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950"
+    >
       <div className="relative items-center z-10 max-w-7xl mx-auto flex flex-col sm:items-center md:flex-row items-start justify-between gap-10 sm:gap-14">
         {/* Left Section */}
         <div className="flex-1 bg-gray-900/60 border border-cyan-400/60 rounded-3xl p-6 sm:p-10 md:p-12 shadow-[0_0_40px_-10px_rgba(0,255,255,0.4)] text-white relative">
-          <img
-            src={ProfileImage}
-            alt="Profile"
-            className="absolute -top-10 right-6 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full border-4 border-cyan-400 shadow-md bg-gray-800 p-2"
-          />
+          <div className="profile-ring absolute -top-10 right-6 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32">
+            <img
+              src={ProfileImage}
+              alt="Muhammad Sohaib Maqsood"
+              className="w-full h-full rounded-full object-cover object-top"
+            />
+          </div>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 sm:mb-6">
             <span className="text-cyan-400 drop-shadow">About</span> Me
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mb-4">
-            I am <span className="text-cyan-400 font-semibold">Muhammad Sohaib Maqsood</span>, a
-            <span className="text-cyan-400 font-semibold"> Data Scientist</span> and
-            <span className="text-cyan-400 font-semibold"> Machine Learning Practitioner</span>
-            with a strong foundation in mathematics and analytical problem-solving.
+            I am <span className="text-cyan-400 font-semibold">Muhammad Sohaib Maqsood</span>, an
+            <span className="text-cyan-400 font-semibold"> AI / Machine Learning Engineer</span> and
+            <span className="text-cyan-400 font-semibold"> Full-Stack Developer</span> with a BS in
+            Mathematics (Data Science Specialization) from Namal University.
           </p>
 
           <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mb-6 sm:mb-8">
-            My work focuses on building intelligent systems, developing data-driven solutions, and
-            designing scalable web applications. I combine mathematical rigor with modern
-            technologies to transform complex data into actionable insights.
+            I am most interested in AI and machine learning — building predictive models, connecting
+            them to real web applications, and turning mathematical ideas into working software. My
+            final-year project models HPV transmission dynamics and cervical cancer risk using
+            TensorFlow, React, and Django.
           </p>
 
           {/* Education Section */}
@@ -63,41 +70,31 @@ const About = () => {
 
             <ul className="text-gray-300 space-y-4 text-sm sm:text-base md:text-lg">
               <li>
-                <span className="font-semibold text-white">Bachelor of Science in Mathematics</span>{' '}
-                — Namal University, Mianwali (Expected 2026)
-                <p className="text-gray-400 text-xs sm:text-sm mt-1 ml-2">
-                  Specialized in Discrete Geometry, Elliptic Geometry, Applied Mathematics, and
-                  advanced quantitative methods with applications in Data Science and Artificial
-                  Intelligence.
-                </p>
-              </li>
-
-              <li>
                 <span className="font-semibold text-white">
-                  Data Science & Machine Learning Certifications
+                  BS Mathematics (Data Science Specialization)
                 </span>{' '}
-                — Professional Online Programs
+                — Namal University, Mianwali (2022 – 2026)
                 <p className="text-gray-400 text-xs sm:text-sm mt-1 ml-2">
-                  Completed hands-on training in Python, Pandas, NumPy, Scikit-learn, data
-                  visualization, and applied machine learning techniques.
+                  CGPA 3.0/4.0. Coursework includes Machine Learning, Mathematical Modelling,
+                  Probability & Statistics, Data Visualization, Numerical Methods, and Optimization.
                 </p>
               </li>
 
               <li>
-                <span className="font-semibold text-white">Applied Machine Learning Projects</span>{' '}
-                — Kaggle & Independent Research
+                <span className="font-semibold text-white">Focus</span> — AI / Machine Learning
+                Engineer roles
                 <p className="text-gray-400 text-xs sm:text-sm mt-1 ml-2">
-                  Developed predictive models, regression and classification systems, and
-                  mathematical optimization solutions for real-world datasets.
+                  Applying Python and TensorFlow to predictive modeling, with additional experience
+                  building REST APIs and interfaces in Django and React.
                 </p>
               </li>
 
               <li>
-                <span className="font-semibold text-white">Industry Experience</span> — Naxium
-                Software & Forage
+                <span className="font-semibold text-white">Certifications</span> — Saylor Academy,
+                Forage, Scholarhat, Naxium Software, OEC & ICMBD
                 <p className="text-gray-400 text-xs sm:text-sm mt-1 ml-2">
-                  Contributed to backend API development, interactive dashboards, and analytical
-                  reporting systems within professional environments.
+                  Python for Data Science, British Airways Data Science Simulation, ReactJS
+                  Foundation, internship, and soft skills certification.
                 </p>
               </li>
             </ul>

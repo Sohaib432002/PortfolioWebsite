@@ -24,9 +24,11 @@ const Navbar = () => {
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, type: "spring", stiffness: 80 }}
-          className="text-2xl md:text-3xl font-extrabold text-white cursor-pointer select-none"
+          className="text-2xl md:text-3xl font-extrabold text-white cursor-pointer select-none shrink-0"
         >
-          Sohaib<span className="text-cyan-300">.</span>
+          <Link to="/" className="text-white">
+            Sohaib<span className="text-cyan-300">.</span>
+          </Link>
         </motion.div>
 
         <div className="hidden md:flex items-center space-x-10">
@@ -53,9 +55,14 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <FiX size={28} className="text-white" /> : <FiMenu size={28} className="text-white" />}
+        <div className="md:hidden flex items-center shrink-0">
+          <button
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white hover:bg-white/15"
+          >
+            {isOpen ? <FiX size={26} /> : <FiMenu size={26} />}
           </button>
         </div>
       </div>

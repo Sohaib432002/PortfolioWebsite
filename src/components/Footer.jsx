@@ -1,7 +1,22 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FiFacebook, FiGithub, FiLinkedin } from 'react-icons/fi'
+import { SITE } from '../data/site'
 
 const Footer = () => {
+  const pageLinks = [
+    { label: 'Home', to: '/' },
+    { label: 'Skills', to: '/skills' },
+    { label: 'Projects', to: '/projects' },
+    { label: 'Contact', to: '/contact' },
+  ]
+
+  const socialLinks = [
+    { icon: <FiLinkedin size={24} />, link: SITE.linkedin, label: 'LinkedIn' },
+    { icon: <FiGithub size={24} />, link: SITE.github, label: 'GitHub' },
+    { icon: <FiFacebook size={24} />, link: SITE.facebook, label: 'Facebook' },
+  ]
+
   return (
     <footer className="relative w-full bg-gradient-to-t from-[#040914] to-[#0a0f20] text-gray-300 px-6 py-12 overflow-hidden">
       <div className="absolute top-10 left-10 w-72 h-72 bg-cyan-500/20 blur-[120px] rounded-full"></div>
@@ -14,40 +29,31 @@ const Footer = () => {
           transition={{ duration: 1 }}
           className="text-2xl md:text-3xl font-bold text-cyan-400 cursor-default"
         >
-          Sohaib Maqsood
+          {SITE.shortName}
         </motion.div>
 
         <div className="flex gap-6 flex-wrap justify-center">
-          {['Home', 'Skills', 'Projects', 'Contact'].map((link, idx) => (
-            <motion.a
-              key={idx}
-              href={`#${link === 'Home' ? '/' : link.toLowerCase()}`}
-              whileHover={{ y: -3, scale: 1.1, color: '#00ffff' }}
+          {pageLinks.map((link) => (
+            <motion.div
+              key={link.label}
+              whileHover={{ y: -3, scale: 1.1 }}
               transition={{ type: 'spring', stiffness: 300 }}
-              className="font-medium hover:text-cyan-400 transition-colors"
             >
-              {link}
-            </motion.a>
+              <Link to={link.to} className="font-medium hover:text-cyan-400 transition-colors">
+                {link.label}
+              </Link>
+            </motion.div>
           ))}
         </div>
 
         <div className="flex gap-4">
-          {[
-            {
-              icon: <FiLinkedin size={24} />,
-              link: 'www.linkedin.com/in/muhammad-sohaib-maqsood-72b785244',
-            },
-            { icon: <FiGithub size={24} />, link: 'https://github.com/Sohaib432002' },
-            {
-              icon: <FiFacebook size={24} />,
-              link: 'https://www.facebook.com/sohaib.maqsood.51319',
-            },
-          ].map((item, idx) => (
+          {socialLinks.map((item) => (
             <motion.a
-              key={idx}
+              key={item.label}
               href={item.link}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label={item.label}
               whileHover={{ scale: 1.2, color: '#00ffff' }}
               transition={{ type: 'spring', stiffness: 300 }}
               className="text-gray-300"
@@ -66,7 +72,7 @@ const Footer = () => {
         transition={{ duration: 1 }}
         className="text-center pointer-events-none text-gray-500 relative z-10"
       >
-        &copy; {new Date().getFullYear()} Sohaib Maqsood. All rights reserved.
+        &copy; {new Date().getFullYear()} {SITE.shortName}. All rights reserved.
       </motion.div>
     </footer>
   )

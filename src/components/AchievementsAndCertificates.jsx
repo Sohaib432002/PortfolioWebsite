@@ -35,9 +35,9 @@ const AchievementsAndCertificates = () => {
           },
           {
             img: `${process.env.PUBLIC_URL}/assets/1754938041268.jpg`,
-            title: 'Naxium Software Internship Certificate',
-            desc: 'Successfully completed an internship at Naxium Software, working on advanced web development, dashboard creation, data handling, backend APIs and real-world project experience using Django, ReactJS and data visualization tools.',
-            issuer: 'Naxium Software | Year: 2025',
+            title: 'Nexium Software Internship Certificate',
+            desc: 'Successfully completed an internship at Nexium Software, working on web development, dashboard creation, data handling, backend APIs and project work using Django, ReactJS and data visualization tools.',
+            issuer: 'Nexium Software | Year: 2025',
           },
           {
             img: `${process.env.PUBLIC_URL}/assets/Forage.png`,

@@ -5,40 +5,40 @@ import { SiScikitlearn, SiTensorflow } from 'react-icons/si'
 const ServicesSection = () => {
   const services = [
     {
-      icon: <FaPython />,
-      title: 'Python Programming',
+      icon: <SiTensorflow />,
+      title: 'AI / Machine Learning',
       description:
-        'Strong Python skills for data analysis, automation, and AI/ML projects. Proficient with Pandas, NumPy, and more.',
+        'Predictive modeling with Python and TensorFlow, model evaluation, and turning trained models into usable applications.',
     },
     {
-      icon: <SiScikitlearn />,
-      title: 'Machine Learning & AI',
+      icon: <FaPython />,
+      title: 'Python & Data Science',
       description:
-        'Experience with regression, classification, clustering, neural networks, and TensorFlow for predictive analytics.',
+        'Statistical analysis, data visualization, and mathematical modeling using Python, Pandas, and NumPy.',
+    },
+    {
+      icon: <FaBrain />,
+      title: 'Applied Mathematics',
+      description:
+        'Probability, numerical methods, optimization, and converting mathematical models into working software.',
     },
     {
       icon: <FaReact />,
-      title: 'Web Development',
+      title: 'Full-Stack Web Apps',
       description:
-        'Building responsive websites and web apps using ReactJS, HTML, CSS, JS, and integrating backend with Django.',
+        'React frontends and Django backends for dashboards, REST APIs, and ML-powered web interfaces.',
     },
     {
       icon: <FaDatabase />,
       title: 'Databases',
       description:
-        'Designing and managing databases, writing efficient SQL queries, and ensuring proper data handling.',
+        'SQL querying and data handling with MySQL, PostgreSQL, and SQLite in analytics and web projects.',
     },
     {
-      icon: <FaBrain />,
-      title: 'Mathematics & Analytics',
+      icon: <SiScikitlearn />,
+      title: 'ML in Production UIs',
       description:
-        'Applied mathematics expertise, including linear algebra, probability, discrete geometry, and AI/DS integration.',
-    },
-    {
-      icon: <SiTensorflow />,
-      title: 'AI Integration',
-      description:
-        'Creating intelligent solutions, AI-based automation, and interactive AI demos using modern tools.',
+        'Serving model predictions through REST APIs and presenting results in interactive React dashboards.',
     },
   ]
 

@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { FiGithub, FiLinkedin, FiMail, FiPhone } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
+import { SITE } from '../data/site'
 
 const ContactSection = () => {
   const [result, setResult] = useState('')
@@ -36,7 +38,7 @@ const ContactSection = () => {
   }
 
   return (
-    <section className="w-full  bg-gray-900 text-white px-4 py-16">
+    <section className="w-full  bg-gray-900 text-white px-4 py-16 pb-24">
       <div className="max-w-xl mx-auto text-center">
         {/* Header */}
         <h2 className="text-3xl pointer-events-none sm:text-4xl font-extrabold text-cyan-400 mb-4">
@@ -46,32 +48,40 @@ const ContactSection = () => {
           I’d love to connect — feel free to reach out anytime.
         </p>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8 flex-wrap">
           <a
-            href="mailto:sohaibmaqsoodsohaibmaqsood@gmail.com"
-            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full py-3 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
+            href={`mailto:${SITE.email}`}
+            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full sm:w-auto sm:flex-1 py-3 px-4 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
           >
             <FiMail /> Email
           </a>
           <a
-            href="tel:+923191057875"
-            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full py-3 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
+            href={`tel:${SITE.phone}`}
+            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full sm:w-auto sm:flex-1 py-3 px-4 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
           >
             <FiPhone /> Call
           </a>
           <a
-            href="www.linkedin.com/in/muhammad-sohaib-maqsood-72b785244"
+            href={SITE.whatsapp}
             target="_blank"
-            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full py-3 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
-            rel="noreferrer"
+            rel="noopener noreferrer"
+            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full sm:w-auto sm:flex-1 py-3 px-4 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
+          >
+            <FaWhatsapp /> WhatsApp
+          </a>
+          <a
+            href={SITE.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full sm:w-auto sm:flex-1 py-3 px-4 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
           >
             <FiLinkedin /> LinkedIn
           </a>
           <a
-            href="https://github.com/Sohaib432002"
+            href={SITE.github}
             target="_blank"
-            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full py-3 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
-            rel="noreferrer"
+            rel="noopener noreferrer"
+            className="flex justify-center items-center gap-2 bg-cyan-500 text-white w-full sm:w-auto sm:flex-1 py-3 px-4 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
           >
             <FiGithub /> GitHub
           </a>

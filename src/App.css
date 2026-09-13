@@ -1,7 +1,62 @@
-body,
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
-section {
-  /* overflow: hidden; */
+body {
+  overflow-x: clip;
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-float {
+  animation: whatsapp-pulse 2.6s ease-out infinite;
+}
+
+@keyframes scroll-hint {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.12);
+    opacity: 1;
+  }
+}
+
+.scroll-hint {
+  animation: scroll-hint 1.6s ease-in-out infinite;
+}
+
+@keyframes profile-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(34, 211, 238, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0);
+  }
+}
+
+.profile-ring {
+  padding: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #67e8f9 0%, #22d3ee 45%, #2563eb 100%);
+  animation: profile-pulse 2.6s ease-out infinite;
+}
+
+.profile-ring img {
+  display: block;
+  background: #041028;
 }

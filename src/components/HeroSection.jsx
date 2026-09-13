@@ -1,19 +1,22 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
-import { FiArrowDown, FiArrowRight } from 'react-icons/fi'
+import { FiArrowDown, FiArrowRight, FiChevronsDown } from 'react-icons/fi'
 import { TypeAnimation } from 'react-type-animation'
+import { SITE } from '../data/site'
 
-const ProfileImage = `${process.env.PUBLIC_URL}/assets/profile pic (1).png`
+const ProfileImage = SITE.profileImage
 
 const HeroSection = () => {
   const canvasRef = useRef(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
+    if (!canvas) return
     const ctx = canvas.getContext('2d')
 
     let width = (canvas.width = window.innerWidth)
     let height = (canvas.height = window.innerHeight)
+    let animationId = 0
 
     let points = []
     const POINTS_COUNT = 50
@@ -59,7 +62,7 @@ const HeroSection = () => {
         ctx.fill()
       }
 
-      requestAnimationFrame(draw)
+      animationId = requestAnimationFrame(draw)
     }
 
     draw()
@@ -70,11 +73,21 @@ const HeroSection = () => {
     }
     window.addEventListener('resize', handleResize)
 
-    return () => window.removeEventListener('resize', handleResize)
+    return () => {
+      cancelAnimationFrame(animationId)
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
 
+  const scrollToAbout = () => {
+    const about = document.getElementById('about')
+    if (about) {
+      about.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   return (
-    <section className="relative w-full min-h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden px-4">
+    <section className="relative w-full min-h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden px-4 pt-24 pb-24">
       <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full z-0" />
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center w-full gap-6">
@@ -95,13 +108,11 @@ const HeroSection = () => {
           <div className="text-sm pointer-events-none sm:text-lg md:text-xl text-white mt-3 mb-4 sm:mb-6">
             <TypeAnimation
               sequence={[
-                'Python Data Scientist ',
+                'AI / Machine Learning Engineer ',
                 2000,
-                'Machine Learning Enthusiast ',
+                'Applied Mathematics & Data Science ',
                 2000,
-                'Web Developer ',
-                2000,
-                'AI Enthusiast ',
+                'Full-Stack Developer ',
                 2000,
               ]}
               speed={50}
@@ -120,8 +131,8 @@ const HeroSection = () => {
             </motion.a>
 
             <motion.a
-              href={`${process.env.PUBLIC_URL}/assets/Sohaib_CV.pdf`}
-              download="Muhammad-Sohaib-Maqsood-CV.pdf"
+              href={SITE.cvPath}
+              download={SITE.cvFileName}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 bg-cyan-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg font-medium hover:bg-cyan-400 transition-colors text-sm sm:text-base"
@@ -137,15 +148,24 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="relative w-40 sm:w-64 md:w-80">
+          <div className="profile-ring relative w-40 sm:w-64 md:w-80">
             <img
               src={ProfileImage}
-              alt="Profile"
-              className="w-full rounded-full border-4 border-cyan-400 shadow-lg"
+              alt="Muhammad Sohaib Maqsood"
+              className="relative z-10 w-full aspect-square rounded-full object-cover object-top"
             />
           </div>
         </motion.div>
       </div>
+
+      <button
+        type="button"
+        onClick={scrollToAbout}
+        aria-label="Scroll down to more content"
+        className="scroll-hint absolute bottom-5 left-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full border-2 border-cyan-800 bg-cyan-900 text-cyan-100 shadow-[0_0_14px_rgba(8,47,73,0.7)] hover:bg-cyan-950"
+      >
+        <FiChevronsDown size={26} aria-hidden="true" />
+      </button>
     </section>
   )
 }

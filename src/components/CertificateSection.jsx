@@ -8,8 +8,8 @@ const certificates = [
       'Completed a data science simulation analyzing customer reviews, uncovering insights, and building predictive models for airline customer behavior.',
   },
   {
-    title: 'Naxium Software Internship',
-    issuer: 'Naxium Software',
+    title: 'Nexium Software Internship',
+    issuer: 'Nexium Software',
     year: '2025',
     image: `${process.env.PUBLIC_URL}/assets/Nexium.png`,
     description:

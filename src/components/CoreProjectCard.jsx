@@ -6,8 +6,8 @@ const CoreProjectCard = React.memo(({ project }) => {
       <img
         src={project.image}
         alt={project.title}
-        loading="lazy" // ✅ lazy loading
-        className="w-full h-40 sm:h-48 object-cover"
+        loading="lazy"
+        className="w-full h-40 sm:h-48 object-cover object-top bg-[#0d1b2a]"
       />
 
       <div className="p-5">
@@ -15,7 +15,7 @@ const CoreProjectCard = React.memo(({ project }) => {
 
         <p className="text-gray-300 pointer-events-none text-sm mb-4">{project.description}</p>
 
-        <div className="flex  flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2 mb-4">
           {project.tech.map((tech, i) => (
             <span
               key={i}
@@ -26,18 +26,28 @@ const CoreProjectCard = React.memo(({ project }) => {
           ))}
         </div>
 
-        <div className="flex justify-between">
-          <a
-            href={project.github}
-            target="_blank"
-            className="text-cyan-400 text-sm hover:underline"
-          >
-            GitHub
-          </a>
+        <div className="flex flex-wrap gap-x-4 gap-y-2">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-400 text-sm hover:underline"
+            >
+              GitHub
+            </a>
+          )}
 
-          <a href={project.demo} target="_blank" className="text-cyan-400 text-sm hover:underline">
-            Live
-          </a>
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-400 text-sm hover:underline"
+            >
+              Live Demo
+            </a>
+          )}
         </div>
       </div>
     </div>

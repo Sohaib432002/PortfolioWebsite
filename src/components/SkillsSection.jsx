@@ -4,47 +4,47 @@ import SkillModal from './SkillModel'
 
 const skillsData = [
   {
+    title: 'Machine Learning & AI',
+    description:
+      'Strong interest in AI and machine learning: predictive modeling, model evaluation, TensorFlow, and turning trained models into usable applications.',
+  },
+  {
     title: 'Python',
     description:
-      'Expert in Python programming, data manipulation with Pandas & NumPy, and ML model building with frameworks.',
+      'Python for statistical modeling, data analysis with Pandas and NumPy, and ML-backed web applications.',
   },
   {
-    title: 'Machine Learning',
+    title: 'Data Science & Math',
     description:
-      'Hands-on experience with ML algorithms, model evaluation, tuning, and real-world AI applications.',
+      'Statistical analysis, probability, numerical methods, optimization, and data visualization from a mathematics background.',
   },
   {
-    title: 'Web Development',
+    title: 'Full-Stack Development',
     description:
-      'Building responsive front-end and scalable back-end apps using ReactJS, HTML, CSS, JS & Django.',
-  },
-  {
-    title: 'Data Science Projects',
-    description:
-      'Data visualization, analysis, dashboards, insights extraction using Python libraries.',
+      'React and Django applications, REST APIs, JWT authentication, and dashboards that present model and analytics results.',
   },
 ]
 
 const skillsDetailedData = [
   {
+    title: 'Machine Learning & AI',
+    description:
+      'Hands-on experience applying Python and TensorFlow to predictive models, including a final-year research project on HPV transmission dynamics and cervical cancer risk prediction. Comfortable with model evaluation, mathematical modeling, and serving predictions through web interfaces.',
+  },
+  {
     title: 'Python',
     description:
-      'Strong command of Python programming with hands-on experience in data manipulation and analysis using Pandas and NumPy. Skilled in writing clean, efficient, and scalable code. Experience in building data-driven applications, implementing mathematical models, and developing machine learning solutions using frameworks like Scikit-learn and TensorFlow.',
+      'Python for data analysis, statistical modeling, and machine learning workflows using Pandas, NumPy, and TensorFlow. Experience writing backend services that expose model predictions through REST APIs.',
   },
   {
-    title: 'Machine Learning',
+    title: 'Data Science & Math',
     description:
-      'Practical experience in implementing supervised and unsupervised machine learning algorithms including regression, classification, clustering, and model optimization. Skilled in data preprocessing, feature engineering, model evaluation, hyperparameter tuning, and performance analysis for real-world AI-based applications.',
+      'BS Mathematics with a Data Science specialization. Coursework and project work in probability, statistics, numerical methods, optimization, data visualization, and converting mathematical models into software.',
   },
   {
-    title: 'Web Development',
+    title: 'Full-Stack Development',
     description:
-      'Experienced in developing responsive and user-friendly web applications using ReactJS, HTML, CSS, and JavaScript for front-end development, along with Django for building secure and scalable back-end systems. Capable of integrating APIs, handling databases, and deploying full-stack applications.',
-  },
-  {
-    title: 'Data Science Projects',
-    description:
-      'Hands-on experience in end-to-end data science projects including data cleaning, exploratory data analysis (EDA), visualization, dashboard creation, and extracting meaningful insights using Python libraries such as Matplotlib, Seaborn, and Plotly. Able to transform raw data into actionable results.',
+      'Building React frontends and Django backends for dashboards and ML apps, including JWT authentication, REST APIs, and responsive interfaces that display live prediction and analytics results.',
   },
 ]
 const SkillsSectionSimple = () => {
@@ -58,7 +58,7 @@ const SkillsSectionSimple = () => {
           My <span className="text-white">Skills</span>
         </h2>
         <p className="text-cyan-400 text-sm pointer-events-none xs:text-base sm:text-lg">
-          — AI • Web • Data Science —
+          — AI / ML • Data Science • Full-Stack —
         </p>
       </div>
 

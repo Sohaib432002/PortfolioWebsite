@@ -5,19 +5,18 @@ import {
   FaCloud,
   FaCss3Alt,
   FaDatabase,
-  FaFlask,
   FaGitAlt,
   FaGithub,
   FaHtml5,
   FaJs,
-  FaLaptopCode,
   FaPython,
   FaReact,
   FaServer,
   FaSpider,
 } from 'react-icons/fa'
-import { SiDjango, SiNumpy, SiPandas, SiRedux, SiTailwindcss } from 'react-icons/si'
-const ProfileImage = `${process.env.PUBLIC_URL}/assets/profile pic (1).png`
+import { SiDjango, SiNumpy, SiPandas, SiRedux, SiTailwindcss, SiTensorflow, SiTypescript } from 'react-icons/si'
+import { SITE } from '../data/site'
+const ProfileImage = SITE.profileImage
 const AboutSection = () => {
   return (
     <section className="relative w-full  min-h-screen bg-gradient-to-b from-[#0a0f2a] to-[#041028] text-white py-20 px-6 overflow-hidden">
@@ -37,37 +36,48 @@ const AboutSection = () => {
         </h1>
 
         <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="w-60 h-60 rounded-2xl shadow-xl border-2 border-cyan-400 overflow-hidden bg-white/10 backdrop-blur-md">
-            <img src={ProfileImage} alt="profile" className="w-full h-full object-cover" />
+          <div className="profile-ring w-60 h-60 shrink-0">
+            <img
+              src={ProfileImage}
+              alt="Muhammad Sohaib Maqsood"
+              className="w-full h-full rounded-full object-cover object-top"
+            />
           </div>
 
-          <div className="flex-1 pointer-events-none space-y-6">
+          <div className="flex-1 space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-cyan-400">
               Muhammad Sohaib Maqsood
             </h2>
             <p className="text-gray-300 leading-relaxed text-lg">
-              I am a passionate <span className="text-cyan-400 font-semibold">Mathematician</span>,{' '}
-              <span className="text-cyan-400 font-semibold">Data Scientist</span>, and{' '}
-              <span className="text-cyan-400 font-semibold">Web Developer</span>
-              from Mianwali, Pakistan. I love building intelligent systems, analyzing complex data,
-              and creating beautiful and smart interfaces using modern technologies.
+              I am an <span className="text-cyan-400 font-semibold">AI / Machine Learning Engineer</span>{' '}
+              and <span className="text-cyan-400 font-semibold">Full-Stack Developer</span> based in
+              Islamabad, Pakistan. My strongest interest is AI and machine learning — from
+              mathematical modeling and TensorFlow prediction models to deploying them in React and
+              Django applications.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-300">
               <p>
-                <strong className="text-cyan-400">📍 Address:</strong> Near PAF Colony, Talagang
-                Road, Mianwali
+                <strong className="text-cyan-400">📍 Location:</strong> Islamabad, Pakistan
               </p>
               <p>
-                <strong className="text-cyan-400">📞 Phone:</strong> 03191057875
+                <strong className="text-cyan-400">📞 Phone:</strong>{' '}
+                <a href="tel:+923191057875" className="hover:text-cyan-300">
+                  +92 319 1057875
+                </a>
               </p>
               <p>
                 <strong className="text-cyan-400">📧 Email:</strong>{' '}
-                sohaibmaqsoodsohaibmaqsood@gmail.com
+                <a
+                  href="mailto:sohaibmaqsoodsohaibmaqsood@gmail.com"
+                  className="break-all hover:text-cyan-300"
+                >
+                  sohaibmaqsoodsohaibmaqsood@gmail.com
+                </a>
               </p>
               <p>
-                <strong className="text-cyan-400">🎓 Degree:</strong> BS Mathematics (Namal
-                University)
+                <strong className="text-cyan-400">🎓 Degree:</strong> BS Mathematics (Data Science),
+                Namal University (2022 – 2026)
               </p>
             </div>
           </div>
@@ -78,11 +88,13 @@ const AboutSection = () => {
         <div className="mb-16 pointer-events-none">
           <h3 className="text-3xl font-bold text-cyan-400 mb-4">🎓 Education</h3>
           <p className="text-gray-300 text-lg leading-relaxed">
-            I am pursuing a{' '}
-            <span className="text-cyan-400 font-semibold">Bachelor's in Mathematics</span> from
-            Namal University. My academic focus includes Discrete Geometry, Linear Algebra,
-            Probability, and Applied Mathematics. I actively combine Math with AI, Data Science, and
-            Machine Learning.
+            I completed a{' '}
+            <span className="text-cyan-400 font-semibold">
+              BS Mathematics (Data Science Specialization)
+            </span>{' '}
+            from Namal University (2022 – 2026), CGPA 3.0/4.0. Relevant coursework includes Machine
+            Learning, Mathematical Modelling, Probability & Statistics, Data Visualization, Numerical
+            Methods, and Optimization.
           </p>
         </div>
 
@@ -91,15 +103,17 @@ const AboutSection = () => {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
             {[
+              { icon: <FaBrain />, label: 'Machine Learning' },
+              { icon: <SiTensorflow />, label: 'TensorFlow' },
+              { icon: <FaBrain />, label: 'Predictive Modeling' },
               { icon: <FaPython />, label: 'Python' },
               { icon: <SiPandas />, label: 'Pandas' },
               { icon: <SiNumpy />, label: 'NumPy' },
-              { icon: <FaBrain />, label: 'Machine Learning' },
-              { icon: <FaBrain />, label: 'Deep Learning' },
               { icon: <FaChartBar />, label: 'Data Visualization' },
               { icon: <FaBroom />, label: 'Data Cleaning' },
               { icon: <FaSpider />, label: 'Web Scraping' },
               { icon: <FaReact />, label: 'React JS' },
+              { icon: <SiTypescript />, label: 'TypeScript' },
               { icon: <FaJs />, label: 'JavaScript' },
               { icon: <SiDjango />, label: 'Django' },
               { icon: <SiDjango />, label: 'Django REST Framework' },
@@ -109,8 +123,7 @@ const AboutSection = () => {
               { icon: <SiTailwindcss />, label: 'Tailwind CSS' },
               { icon: <FaGitAlt />, label: 'Git' },
               { icon: <FaGithub />, label: 'GitHub' },
-              { icon: <FaServer />, label: 'API Development' },
-              { icon: <FaFlask />, label: 'Flask' },
+              { icon: <FaServer />, label: 'REST APIs' },
               { icon: <SiRedux />, label: 'Redux' },
               { icon: <FaCloud />, label: 'Deployment' },
             ].map((item, idx) => (
@@ -129,11 +142,10 @@ const AboutSection = () => {
           <h3 className="text-3xl font-bold text-cyan-400 mb-4">✨ Hobbies & Interests</h3>
 
           <ul className="list-disc list-inside text-gray-300 text-lg leading-relaxed">
-            <li>Exploring AI & Machine Learning</li>
-            <li>Web Development (React + Django)</li>
-            <li>Data Visualization & Analysis</li>
-            <li>Reading Islamic Knowledge</li>
-            <li>Watching tech videos & learning new tools</li>
+            <li>AI, machine learning, and predictive modeling</li>
+            <li>Connecting ML models to web applications</li>
+            <li>Data visualization and applied mathematics</li>
+            <li>Reading Islamic knowledge</li>
           </ul>
         </div>
       </div>

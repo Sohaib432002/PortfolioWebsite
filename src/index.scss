@@ -5,7 +5,8 @@
 
 /* Global background */
 html, body {
-  height: 100%;
+  min-height: 100%;
+  height: auto;
   margin: 0;
   padding: 0;
   background: radial-gradient(circle, #00ace6 25%, #006080 60%, #00394c 100%);
@@ -76,9 +77,7 @@ button {
 
 body {
   background-color: light-dark(var(--gray50), var(--gray950));
-  display: grid;
-  place-items: center;
-  height: 100vh;
+  min-height: 100vh;
   transition: background-color var(--trans-dur), color var(--trans-dur);
 }
 

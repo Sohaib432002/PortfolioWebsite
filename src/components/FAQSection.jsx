@@ -5,31 +5,31 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 const faqData = [
   {
     question: "What technologies do I specialize in?",
-    answer: "I specialize in Python, Data Science, Machine Learning, AI/ML integration, ReactJS, Django, and Web Development."
+    answer: "My main interest is AI and machine learning, along with Python, TensorFlow, data science, React, and Django."
   },
   {
     question: "How can you contact me?",
-    answer: "You can contact me via email at sohaibmaqsoodsohaibmaqsood@gmail.com, or phone at 03191057875. I also respond via LinkedIn and GitHub messages."
+    answer: "You can email me at sohaibmaqsoodsohaibmaqsood@gmail.com, call or WhatsApp +92 319 1057875, or reach me on LinkedIn and GitHub."
   },
   {
     question: "What projects have I done?",
-    answer: "I have worked on AI/ML projects, Data Analysis projects, Web Development projects (ReactJS + Django), and Interactive Dashboards using Python libraries like Matplotlib, Seaborn, and Plotly."
+    answer: "Featured work includes HPV transmission dynamics and risk prediction, VisuSign traffic-sign recognition, a gallstone clinical dashboard, a smart finance dashboard, a YouTube clone, and a client portfolio website."
   },
   {
-    question: "Do I offer AI-integrated solutions?",
-    answer: "Yes! I build intelligent systems, AI-powered chatbots, predictive models, and data-driven web applications."
+    question: "Do I work with machine learning in web apps?",
+    answer: "Yes. That is a core interest. I connect trained models to web interfaces, including the HPV prediction workflow and VisuSign traffic-sign recognition."
   },
   {
     question: "Can I assist in web development projects?",
-    answer: "Absolutely! I can handle full-stack development using ReactJS for frontend and Django for backend, with database integration and deployment support."
+    answer: "Yes. I build React frontends and Django backends, especially for dashboards and applications that present ML or analytics results."
   },
   {
     question: "What are my hobbies and interests?",
-    answer: "Exploring AI & ML, Data Visualization, Web Development, reading Islamic knowledge, and keeping up with tech innovations."
+    answer: "AI and machine learning, predictive modeling, data visualization, applied mathematics, and reading Islamic knowledge."
   },
   {
     question: "What kind of support do I provide?",
-    answer: "I provide consultation, project guidance, technical mentoring, and implementation support in AI, ML, Data Science, and Web Development."
+    answer: "I can help with AI/ML project implementation, data science workflows, and full-stack web applications around those models."
   }
 ];
 

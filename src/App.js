@@ -11,12 +11,12 @@ import FAQSection from './components/FAQSection'
 import Footer from './components/Footer'
 import HeroSection from './components/HeroSection'
 import Navbar from './components/Navbar'
-import ProjectsSection from './components/ProjectSection'
 import ProjectsSectionDetails from './components/ProjectSectionDetails'
 import ServicesSection from './components/ServicesSection'
 import SkillsSection from './components/SkillsSection'
 import ScrollToTop from './components/Scroll'
 import CoreProject from './components/CoreProject'
+import WhatsAppButton from './components/WhatsAppButton'
 function HomePage() {
   return (
     <>
@@ -25,7 +25,6 @@ function HomePage() {
       <SkillsSection />
       <CertificateSection />
       <CoreProject />
-      <ProjectsSection />
       <ContactSection />
     </>
   )
@@ -35,22 +34,16 @@ function SkillsPage() {
   return <SkillsSection />
 }
 
-function ProjectsPage() {
-  return <ProjectsSection />
-}
-
-function ContactPage() {
-  return <ContactSection />
-}
-
 function App() {
   return (
     <Router>
       <ScrollToTop />
       <Navbar />
+      <WhatsAppButton />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutSection />} />
         <Route path="/About" element={<AboutSection />} />
         <Route path="/skills" element={<SkillsPage />} />
         <Route path="/projects" element={<ProjectsSectionDetails />} />
